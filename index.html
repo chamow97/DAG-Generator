@@ -1,13 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="assets/js/index.js"></script>
     <meta charset="UTF-8">
     <title>DAG Generator</title>
+    <link rel="stylesheet" href="assets/plugins/bootstrap4/css/bootstrap.min.css">
+    <script src="assets/plugins/jquery/jquery-3.2.1.js"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="assets/plugins/bootstrap4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/plugins/animate/animate.min.css"></link>
+    <script src="assets/js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/index.css">
+
 </head>
 <body>
+    <div class="container nav-container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+                <ul class="navigation nav nav-pills nav-fill">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">What does it do?</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Generate</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row title-row">
+        <div class="col-sm">
+
+        </div>
+        <div class="col-sm">
+            <p class="title">DAG Generator</p>
+            <img class="logo" src="assets/animation/logo.gif">
+        </div>
+        <div class="col-sm">
+
+        </div>
+    </div>
 <script>
-    alert(infixToPostfix("m=_a*b-_a*b*(_a*b)"));
+    // alert(infixToPostfix("c=(a+b)*(a+b)+(-d)*(-d)"));
+    // generateThreeAddress("cab+ab+*=");
+    $(".title").addClass('animated tada');
+    $(".logo").addClass('animated zoomIn');
 </script>
 </body>
 </html>

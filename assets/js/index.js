@@ -55,7 +55,44 @@ function infixToPostfix(expression){
     return postfixString;
 }
 
-function generateDAG(expression){
-    var evalutationStack = [];
+function generateThreeAddress(expression){
+    let postfixStack = [];
+    let expressionPtr = 0;
+    let variableAssignmentPtr = parseInt(0);
+    var visitedMap = new Map();
+    var assignmentMap = new Map();
+    postfixStack.push(expression[0]);
+    while(postfixStack.length > 0 && expressionPtr < expression.length){
+        ++expressionPtr;
+        let currentTop = postfixStack[postfixStack.length - 1];
+        if(currentTop == "+" ||
+            currentTop == "_" ||
+            currentTop == "*" ||
+            currentTop == "=" ||
+            currentTop == "/"){
+            let operator = '';
+            postfixStack.pop();
+            operator = postfixStack.pop();
+            operator += currentTop;
+            operator += postfixStack.pop();
+            alert(operator);
+            if(visitedMap.get(operator) == "true"){
+                postfixStack.push(assignmentMap.get(operator));
+                postfixStack.push(expression[expressionPtr]);
+                continue;
+            }
+            else{
+                let newAssignment = "T" + variableAssignmentPtr;
+                ++variableAssignmentPtr;
+                assignmentMap.set(operator, newAssignment);
+                visitedMap.set(operator, "true");
+                console.log(newAssignment + "=" + operator);
+                postfixStack.push(newAssignment);
+            }
+        }
+        postfixStack.push(expression[expressionPtr]);
+    }
+    // return "a";
 }
+
 
