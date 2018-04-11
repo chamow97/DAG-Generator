@@ -95,4 +95,14 @@ function generateThreeAddress(expression){
     // return "a";
 }
 
-
+function changeActive(clickId)
+{
+    let navs = document.querySelectorAll(".nav-item");
+    for(var iterator = 0; iterator < navs.length; iterator++){
+        if(navs[iterator].classList.contains("active")){
+            navs[iterator].classList.remove("active");
+        }
+    }
+    let clickEvent = document.getElementById(clickId);
+    clickEvent.classList.add("active");
+}

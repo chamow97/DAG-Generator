@@ -7,6 +7,7 @@
     <script src="assets/plugins/jquery/jquery-3.2.1.js"></script>
     <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
     <script src="assets/plugins/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/smooth-scroll/dist/js/smooth-scroll.min.js"></script>
     <link rel="stylesheet" href="assets/plugins/animate/animate.min.css"></link>
     <script src="assets/js/index.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
@@ -15,20 +16,20 @@
 
 </head>
 <body>
-    <div class="container nav-container">
+    <div id="home" class="container nav-container">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
                 <ul class="navigation nav nav-pills nav-fill">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
+                    <li id="homeLink" onclick="changeActive(this.id)" class="nav-item active">
+                        <a class="nav-link home-nav-link" href="#home">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">What does it do?</a>
+                    <li id="instructionLink" onclick="changeActive(this.id)" class="nav-item" data-toggle="modal" data-target="#instructionModal">
+                        <a class="nav-link instruction-nav-link">What does it do?</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Generate</a>
+                    <li id="generateLink" onclick="changeActive(this.id)" class="nav-item">
+                        <a data-scroll class="nav-link generate-nav-link" href="#generate">Generate</a>
                     </li>
-                    <li class="nav-item">
+                    <li id="aboutLink" onclick="changeActive(this.id)" class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
                 </ul>
@@ -49,11 +50,106 @@
 
         </div>
     </div>
+    <div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="instructionModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Why DAG Generator?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h6>Introduction</h6>
+                    <p>DAG Generator is a tool which gives a Directed Acyclic Graph for a given Infix Expression.
+                    This is a mini project as a part of Compiler Design course.</p>
+                    <br>
+                    <h6>What's the flow?</h6>
+                    <ul>
+                        <li>Infix Expression is given.</li>
+                        <li>Postfix Expression is found from Infix Expression.</li>
+                        <li>Three Address format is found out from the Postfix Expression.</li>
+                        <li>The Three Address Format is represented as a Directed Acyclic Graph.</li>
+                    </ul>
+                    <br>
+                    <h6>Example</h6>
+                    <p>Let the Three Address format be:</p>
+                    <ol>
+                        <li>t0 = a + b</li>
+                        <li>t1 = t0 + c</li>
+                        <li>d = t0 + t1</li>
+                    </ol>
+                    <img src="assets/images/dag1.jpg">
+                    <img src="assets/images/dag2.jpg">
+                    <img src="assets/images/dag3.jpg">
+                    <br>
+                    <p>Please refer <a target="_blank" href="https://www.tutorialspoint.com/compiler_design/compiler_design_code_generation.htm">here</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div id="generate" class="title-row">
+        <br>
+        <br>
+        <br>
+        <form class="form-inline justify-content-center">
+            <label class="sr-only" for="inlineFormInput">Expression</label>
+            <div class="col-sm-2 col-md-3 col-lg-3 col-xs-2"></div>
+            <div class="col-sm-8 col-md-7 col-lg-7 col-xs-8">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inlineFormInput" placeholder="Infix Expression">
+                    <button class="btn btn-primary" type="submit">Generate</button>
+                </div>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2 col-xs-2"></div>
+        </form>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 <script>
     // alert(infixToPostfix("c=(a+b)*(a+b)+(-d)*(-d)"));
     // generateThreeAddress("cab+ab+*=");
     $(".title").addClass('animated tada');
     $(".logo").addClass('animated zoomIn');
+    var generateScroll = new SmoothScroll('.generate-nav-link', {
+        speed: 2000,
+        easing: 'easeInOutCubic'
+    });
+    var homeScroll = new SmoothScroll('.home-nav-link', {
+        speed: 2000,
+        easing: 'easeInOutCubic'
+    });
 </script>
 </body>
 </html>

@@ -9,7 +9,7 @@ body{
     color: #a6d5ec;
     -webkit-animation-duration: 3s;
     -webkit-animation-delay: 1s;
-    -webkit-animation-iteration-count: 2;
+    -webkit-animation-iteration-count: 1;
 }
 
 .title-row{
@@ -22,20 +22,24 @@ body{
     font-size: 1.2em;
 }
 
-a, a:visited{
+.nav-item:hover, .active{
+    background-color: #5cb3fd;
+    transition: background-color 1s;
+}
+
+.nav-item > a, .nav-item{
     color: #e2e845;
+}
+
+.nav-item:hover > a{
+    color: #1d1e1f;
 }
 
 .active > a{
     color: #1d1e1f;
 }
 
-.nav-item:hover, .active{
-    background-color: #5cb3fd;
-    transition: background-color 1s;
-}
-
-.nav-item:hover > a{
+.nav-item:hover{
     color: #1d1e1f;
 }
 
@@ -56,4 +60,6 @@ a, a:visited{
     -webkit-animation-iteration-count: 1;
 }
 
-
+#inlineFormInput{
+    width: 70%;
+}
