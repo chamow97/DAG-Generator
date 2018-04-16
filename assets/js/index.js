@@ -66,7 +66,7 @@ function generateThreeAddress(expression){
         ++expressionPtr;
         let currentTop = postfixStack[postfixStack.length - 1];
         if(currentTop == "+" ||
-            currentTop == "_" ||
+            currentTop == "-" ||
             currentTop == "*" ||
             currentTop == "=" ||
             currentTop == "/"){
@@ -92,7 +92,7 @@ function generateThreeAddress(expression){
         }
         postfixStack.push(expression[expressionPtr]);
     }
-    // return "a";
+
 }
 
 function changeActive(clickId)
@@ -105,4 +105,12 @@ function changeActive(clickId)
     }
     let clickEvent = document.getElementById(clickId);
     clickEvent.classList.add("active");
+}
+
+function generateGraph(){
+    let searchTermEvent = document.querySelector("#inlineFormInput");
+    let searchTerm = searchTermEvent.value;
+    let postFix = infixToPostfix(searchTerm);
+    alert(postFix);
+    generateThreeAddress(postFix);
 }
