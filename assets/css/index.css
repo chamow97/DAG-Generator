@@ -1,6 +1,7 @@
 body{
     background-color: #02060c;
     z-index: 0;
+    overflow-x: hidden;
 }
 
 .title{
@@ -62,4 +63,14 @@ body{
 
 #inlineFormInput{
     width: 70%;
+}
+
+#graph{
+    background-color: #fff;
+    border:1px solid #000000;
+}
+
+.graphSpace{
+    margin-top: 2em;
+
 }
